@@ -17,28 +17,33 @@ img {
   font-weight: 700;
   color:#75B79E;
   font-size: 56px;
-  margin-top: 40px;
-  margin-bottom: 20px;
   text-align: center;
-}
-.top div {
+  height: 150px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .containerCards{
+  width: 80vw;
+  height: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
-  gap:15px;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  gap: 30px;
 }
 
 .card {
   width: 117px;
   height: 146px;
- }
+}
 
 .face {
   width: 117px;
