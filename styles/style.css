@@ -69,6 +69,10 @@ img {
   transform: rotateY(360deg);
  }
 
+ .flip2 .face{
+  transform: rotateY(180deg);
+ }
+
 
 /*Breaking point 600px*/
 @media(max-width:600px ){
