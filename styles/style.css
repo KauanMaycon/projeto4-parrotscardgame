@@ -31,18 +31,20 @@ img {
   flex-wrap: wrap;
 }
 
-.containerCards{
+.containerCards {
   width: 80vw;
   height: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  margin-bottom: 20px;
 }
 
 .card {
   width: 117px;
   height: 146px;
+  position: relative;
 }
 
 .face {
@@ -59,17 +61,13 @@ img {
   transform-style: preserve-3d;
  }
 
-.back-face {
+ .backFace {
   transform: rotateY(180deg);
  }
 
-.card:hover .back-face {
- transform: rotateY(0deg);
-}
-
-.card:hover .front-face {
-  transform: rotateY(-180deg);
-}
+ .flip .face{
+  transform: rotateY(360deg);
+ }
 
 
 /*Breaking point 600px*/
