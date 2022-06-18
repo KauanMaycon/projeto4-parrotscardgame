@@ -1,10 +1,13 @@
 
-let imageBackCards = [`<img src="./img/bobrossparrot.gif" >`,`<img src="./img/explodyparrot.gif" >`,
-`<img src="./img/fiestaparrot.gif">`,` <img src="./img/tripletsparrot.gif">`,`  <img src="./img/metalparrot.gif">`,
-` <img src="./img/revertitparrot.gif">`,`<img src="./img/unicornparrot.gif"></img>`,`<img src="./img/bobrossparrot.gif" >`,`<img src="./img/explodyparrot.gif" >`,
-`<img src="./img/fiestaparrot.gif">`,` <img src="./img/tripletsparrot.gif">`,`  <img src="./img/metalparrot.gif">`,
-` <img src="./img/revertitparrot.gif">`,`<img src="./img/unicornparrot.gif"></img>`];
+let imageBackCards = [`bobrossparrot`,`explodyparrot`,`fiestaparrot`,`tripletsparrot`,`metalparrot`,
+`revertitparrot`,`unicornparrot`,`bobrossparrot`,`explodyparrot`,`fiestaparrot`,`tripletsparrot`,`metalparrot`,
+`revertitparrot`,`unicornparrot`];
 
+imageBackCards.sort(shuffle);
+
+function shuffle() { 
+	return Math.random() - 0.5; 
+}
 
     
     let containerCards = document.querySelector(".containerCards");
@@ -20,7 +23,7 @@ let imageBackCards = [`<img src="./img/bobrossparrot.gif" >`,`<img src="./img/ex
                     <img src="./img/front.png" alt="parrot">
                     </li>
                     <li class="backFace face " >
-                    ${imageBackCards[i]}
+                    <img src="./img/${imageBackCards[i]}.gif" >
                     </li>
                 </ul>`;
             }
@@ -32,9 +35,12 @@ let imageBackCards = [`<img src="./img/bobrossparrot.gif" >`,`<img src="./img/ex
     numberChoice();
 
 
-    function turnCard(card){
-        let mainCard = card.parentNode;
+
+    function turnCard(cardElement){
+        let mainCard = cardElement.parentNode;
+        //let ulCard = card.querySelector("ul .card");
         let haveFlip = mainCard.classList.contains("flip");
+       // let flipFace = maninCard.classList.contains(".flip .face")
         //let backCard = document.querySelector(".backFace");
         if (haveFlip) {
             mainCard.classList.remove("flip");
