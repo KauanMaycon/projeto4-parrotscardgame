@@ -1,7 +1,9 @@
-
 let imageBackCards = [`bobrossparrot`,`explodyparrot`,`fiestaparrot`,`tripletsparrot`,`metalparrot`,
 `revertitparrot`,`unicornparrot`,`bobrossparrot`,`explodyparrot`,`fiestaparrot`,`tripletsparrot`,`metalparrot`,
 `revertitparrot`,`unicornparrot`];
+
+
+let arraySize = imageBackCards.length;
 
 imageBackCards.sort(shuffle);
 
@@ -18,14 +20,14 @@ function shuffle() {
         if(amount >= 4 && amount <= 14 && pair === 0 && amount!== null && amount !== isNaN(amount)){ 
             for(let i = 0; i < amount; i++){     
             containerCards.innerHTML += ` 
-                <ul class="card " onclick="check()">
-                    <li class="frontFace face " onclick="turnCard(this)">
-                    <img src="./img/front.png" alt="parrot">
-                    </li>
-                    <li class="backFace face " >
-                    <img src="./img/${imageBackCards[i]}.gif" >
-                    </li>
-                </ul>`;
+                <li class="card" onclick="turnCard(this)">
+                    <div class="backFace face " >
+                        <img src="./img/${imageBackCards[i]}.gif" >
+                    </div>
+                    <div class="frontFace face"  >
+                        <img src="./img/front.png" alt="parrot">
+                    </div>
+                </li>`;
             }
         }else{
             alert("Dados inválidos!");
@@ -35,33 +37,24 @@ function shuffle() {
     numberChoice();
 
 
-
+    
     function turnCard(cardElement){
-        let mainCard = cardElement.parentNode;
-        //let ulCard = card.querySelector("ul .card");
+        let mainCard = cardElement;
         let haveFlip = mainCard.classList.contains("flip");
-       // let flipFace = maninCard.classList.contains(".flip .face")
-        //let backCard = document.querySelector(".backFace");
-        if (haveFlip) {
-            mainCard.classList.remove("flip");
-            //backCard.classList.add("backFace");
-        } else {
+        if(haveFlip){
+          mainCard.classList.remove("flip");
+        }else{
             mainCard.classList.add("flip");
-            //backCard.classList.remove("backFace");
-          }
-    }
-
-
-    function check(){
-   
-        for(let j = 0; j < imageBackCards.length; j++){
-            console.log(imageBackCards[j]);
         }
+       // console.log(mainCard);
+        // console.log(haveFlip);  
     }
- /*
-    function capture(){
-        //captureBack = document.querySelector(".backFace .face img");
-        //captureBack = captureBack.innerHTML;
-        console.log("oi");
-    }
-   */ 
+
+
+
+
+
+
+
+
+  

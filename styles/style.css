@@ -45,6 +45,8 @@ img {
   width: 117px;
   height: 146px;
   position: relative;
+  transition: all .5s;
+  transform-style: preserve-3d;
 }
 
 .face {
@@ -52,28 +54,20 @@ img {
   height: 146px;
   background-color: #A7E9AF;
   position: absolute;
-  display: inline-flex;
+  display:inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   backface-visibility: hidden;
-  transition: all .5s;
-  transform-style: preserve-3d;
  }
 
- .backFace {
+.backFace {
+transform: rotateY(180deg);
+ }
+
+.flip{
   transform: rotateY(180deg);
  }
-
- .flip .face{
-  transform: rotateY(360deg);
- }
-
- /*
- .flip2 .face{
-  transform: rotateY(180deg);
- }
-*/
 
 /*Breaking point 600px*/
 @media(max-width:600px ){
