@@ -51,26 +51,34 @@ let secondCard;
         let backCapture = cardElement.querySelector(".backFace img").src;
         //let haveFlip = mainCard.classList.contains("flip");  
        mainCard.classList.add("flip");
+       counterDoubleClick();
        if(!firstCard){
         firstCard = backCapture;
        }else if(!secondCard){
        secondCard = backCapture;
-       }   
+       }
+
        console.log(firstCard);
        console.log(secondCard);
        // console.log(haveFlip); 
         //console.log(backCapture); 
          //check();
-        counterClick();
-
-       
     }
 
     let counterA = 0;
 
-    function counterClick(){
+    function counterDoubleClick(){
         counterA ++;
-
+        if(counterA > 2){
+            counterA = 0;
+            firstCard= "";
+            secondCard=""; 
+            counterA ++;     
+        }else if(firstCard !== secondCard){
+            card.classList.remove("flip");
+        }else if(firstCard === secondCard){
+            card.classList.add("flip");
+        }
          console.log(counterA);  
     }
 
@@ -78,12 +86,7 @@ let secondCard;
 
 
 
-/*
-    function check(){
-        let equal = firstCard === secondCard;
-        console.log(equal);       
-    }
-*/
+
 
 
 
