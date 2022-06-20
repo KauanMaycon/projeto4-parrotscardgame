@@ -1,33 +1,8 @@
-
-let imageBackCards = [`bobrossparrot`,`explodyparrot`,`fiestaparrot`,
-`tripletsparrot`,`metalparrot`,
+let imageBackCards = [`bobrossparrot`,`explodyparrot`,
+`fiestaparrot`,`tripletsparrot`,`metalparrot`,
 `revertitparrot`,`unicornparrot`];
 
-
-/*
-let bobrossparrot1 = `bobrossparrot`;
-let bobrossparrot2 = `bobrossparrot`;
-let explodyparrot1 = `explodyparrot`;
-let explodyparrot2 = `explodyparrot`;
-let tripletsparrot1 = `tripletsparrot`;
-let tripletsparrot2 = `tripletsparrot`;
-let metalparrot1 =`metalparrot`;
-let metalparrot2 =`metalparrot`;
-let revertitparrot1 = `revertitparrot`;
-let revertitparrot2 = `revertitparrot`;
-let unicornparrot1 = `unicornparrot`;
-let unicornparrot2 = `unicornparrot`;
-let fiestaparrot1 = `fiestaparrot`;
-let fiestaparrot2 = `fiestaparrot`;
-let imageBackCards =[bobrossparrot1,bobrossparrot2,explodyparrot1,explodyparrot2,
-    tripletsparrot1,tripletsparrot2,metalparrot1,metalparrot2,revertitparrot1,
-    revertitparrot2,unicornparrot1,unicornparrot2,fiestaparrot1,fiestaparrot2];
-*/
-
 let gameArray = [];
-
-imageBackCards.sort(shuffle);
-
 
 function shuffle() { 
 	return Math.random() - 0.5; 
@@ -46,7 +21,7 @@ function shuffle() {
             gameArray.sort(shuffle);
             displayCards();
         }else{
-            alert("Dados inválidos!");    
+            alert("Dados inválidos!");   
         }
     }  
 
@@ -55,9 +30,9 @@ function shuffle() {
         containerCards.innerHTML += ` 
         <li class="card" onclick="flip(this)">
             <div class="backFace face" >
-                <img src="./img/${gameArray[i]}.gif" onclick="acessArray(this)" >
+                <img src="./img/${gameArray[i]}.gif">
             </div>
-            <div class="frontFace face" onclick="capture(this)">
+            <div class="frontFace face">
                 <img src="./img/front.png" alt="parrot">
             </div>
         </li>`;
@@ -66,58 +41,117 @@ function shuffle() {
 
     numberChoice();
 
+let card = document.querySelector(".card");
+let firstCard;
+let secondCard;
+
 
     function flip(cardElement){
         let mainCard = cardElement;
-        mainCard.classList.toggle("flip");
-       // size();
-        //console.log(arraySize);
-       // console.log(mainCard);
-       //console.log(mainCard);  
+        let backCapture = cardElement.querySelector(".backFace img").src;
+        //let haveFlip = mainCard.classList.contains("flip");  
+       mainCard.classList.add("flip");
+       if(!firstCard){
+        firstCard = backCapture;
+       }else if(!secondCard){
+       secondCard = backCapture;
+       }   
+       console.log(firstCard);
+       console.log(secondCard);
+       // console.log(haveFlip); 
+        //console.log(backCapture); 
+         //check();
+        counterClick();
+
+       
     }
 
-    function capture(cardCapture){
-        let captureCard = cardCapture.parentNode;
-        let backCapture = captureCard.querySelector(".backFace img").src;
-        //let haveFlip = captureCard.classList.contains("flip");
-         //let a = backCapture !== backCapture;
-           
-       // console.log(captureCard);
-        console.log(backCapture);
-        //console.log(haveFlip);
-        //console.log(a);
+    let counterA = 0;
+
+    function counterClick(){
+        counterA ++;
+
+         console.log(counterA);  
     }
 
+
+
+
+
+/*
+    function check(){
+        let equal = firstCard === secondCard;
+        console.log(equal);       
+    }
+*/
+
+
+
+
+//parte do flipCard
+      //if(haveFlip !== true){
+        //mainCard.classList.add("flip");
+        // }else if (haveFlip === true){
+           //  mainCard.classList.remove("flip");
+         //}
+        
+        
+        
+        
+    /*
+        if(mainCard !== haveFlip){
+            mainCard.classList.add("flip");
+        }else if(mainCard >= 2 && mainCard.contains("flip")){
+            mainCard.classList.remove("flip");
+            mainCard.classList.add("backFace");
+        }
+      console.log(mainCard);
+    }
+    */
+
+
+
+/*
 
     function acessArray(){
        // console.log(imageBackCards);
     }
-
-
 
     function size(){
         for(let k = 0; k < imageBackCards.length; k++){
            // console.log(imageBackCards[k]);
         }    
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
+ /*
+    function capture(cardCapture){
+        let captureCard = cardCapture.parentNode;
+        let backCapture = captureCard.querySelector(".backFace img").src;
+        if(backCapture !== backCapture){
+            
+        } 
+    }
+*/
 
 
     
 
-  
+  /*
 
 
- 
+function check(){
+    let equal = firstCard === secondCard;
+   
+    if (!equal){
+        disableCards();
+    }else{
+        return true;
+    }
+    console.log(equal);
+}
+
+function disableCards(){
+    card.firstCard.classList.remove("flip");
+    card.secondCard.classList.remove("flip");
+}
+*/
